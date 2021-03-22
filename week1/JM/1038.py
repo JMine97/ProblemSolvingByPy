@@ -11,15 +11,12 @@ while True:
     back=arr[i]%10
     for j in range(back):
         arr.append(arr[i]*10+j)
-
     i+=1
 
 
 arr.sort()
-print(arr)
+# print(arr)
 if n>len(arr)-1:
     print(-1)
 else:
     print(arr[n])
-
-    
