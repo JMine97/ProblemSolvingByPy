@@ -1,10 +1,6 @@
 import sys
 input = sys.stdin.readline
 
-'''''''''''
-메모리 초과 왜 났는지
-'''''''''''
-
 n, s, m = map(int, input().split())
 v = list(map(int, input().split()))
 dp = [[0]*(m+1) for _ in range(n+1)]
