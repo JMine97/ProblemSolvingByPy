@@ -25,7 +25,6 @@ for _ in range(T):
         print("NO")
 
 
-
 '''
 유한 상태 기계
 '''
