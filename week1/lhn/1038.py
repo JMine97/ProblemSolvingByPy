@@ -35,3 +35,4 @@ N = int(input())
 print(solution(N))
 
 
+#한 개를 가지고 다음 거 만들어서 쭉
