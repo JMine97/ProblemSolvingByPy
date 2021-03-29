@@ -21,9 +21,9 @@ dx = [-1, 0, 0, 1]
 dy = [0, -1, 1, 0]
 
 def bfs(x, y, weight, time, eat):
-    q, can_eat = deque(), []
+    q, can_eat = deque(), []                # 바로 먹지 않고 가장 가까운것부터 먹기 위해서 can_eat list에 저장한다. 
     q.append([x, y])
-    c = [[-1] * n for _ in range(n)]
+    c = [[-1] * n for _ in range(n)]        # visited 역할을 하는 list, 안에는 time (count)를 저장한다.
     c[x][y] = time
     while q:
         qlen = len(q)
