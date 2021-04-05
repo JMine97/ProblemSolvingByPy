@@ -1,7 +1,3 @@
-'''''''''
-이해하려고 노력중
-'''''''''
-
 import sys
 input = sys.stdin.readline
 
