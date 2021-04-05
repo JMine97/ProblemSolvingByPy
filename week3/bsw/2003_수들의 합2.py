@@ -2,33 +2,34 @@
 # idx 두개를 움직이는 문제 ==> "while()"
 # 항상 반복문에서 0번째 index를 어떻게 처리할 것인가를 생각
 
+# index 처리 미완성
+
 N, M = map(int, input().split())
 arr = list(map(int, input().split()))
 
 cnt = 0
 Sum = 0
 
-i=0
-j=0
-while(i<N and j<N):
-    
-    if Sum < M:
-        Sum += arr[j]
-        j+=1    
+left=0
+right=0
+while(left<N):
+    if right == N:
+        break
+    elif Sum < M:
+        Sum += arr[right]
+        right+=1    
     elif Sum > M:
-        Sum -= arr[i]
-        i+=1
+        Sum -= arr[left]
+        left+=1
     elif Sum == M:
         cnt += 1
-        i+=1
-        j=i
-        Sum = 0
+        Sum += arr[right]
 
-    if i>j:
-        Sum = 0
-        j=i
+    if left > right:
+        if left < N and right < N:
+            Sum = 0
+            right = left
     
-
 
 print(cnt)
 
