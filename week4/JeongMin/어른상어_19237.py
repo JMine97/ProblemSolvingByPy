@@ -44,8 +44,12 @@ for i in range(1, m+1):
     for j in range(4):
         tmp.append(list(map(int, input().split())))
     shark_priority[i]=tmp
-# print(graph)
-# print(shark)
+
+# 상어 우선순위
+# {1: [[0], [2, 3, 1, 4], [4, 1, 2, 3], [3, 4, 2, 1], [4, 3, 1, 2]], 
+# 2: [[0], [2, 4, 3, 1], [2, 1, 3, 4], [3, 4, 1, 2], [4, 1, 2, 3]], 
+# 3: [[0], [4, 3, 2, 1], [1, 4, 3, 2], [1, 3, 2, 4], [3, 2, 1, 4]], 
+# 4: [[0], [3, 4, 1, 2], [3, 2, 4, 1], [1, 4, 2, 3], [1, 4, 2, 3]]}
 
 def shark_move():
     # 1. 1초마다 모든 상어가 동시에 인접한 칸 중 하나로 이동, 냄새를 뿌린다
@@ -90,10 +94,9 @@ while time<=1000:
             remain_shark -= 1
             shark[i] = [-1, -1, -1]
 
-    # print(time)
-    # print(shark)
-    # [print(graph[i]) for i in range(n)]
-    # print('--------')
+    # 종료 조건
+    if remain_shark == 1:
+        break
 
     shark_move()
 
@@ -105,12 +108,7 @@ while time<=1000:
             if graph[i][j][1]==0:
                 graph[i][j][0] = 0
 
-    # 종료 조건
-    if remain_shark == 1:
-        break
-
     time += 1
-
 
 #1번 상어만 격자에 남게 되기까지 걸리는 시간 출력
 #1000초가 넘어도 다른 상어 있으면 -1 출력
