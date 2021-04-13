@@ -1,11 +1,6 @@
 '''''''''
-맞았는데 가독성이 떨어져서
-수정하겠습니다
-
-잡아먹히면 []가 아니라 [0,0]을 넣었어야 됐는데 []를 넣어
-배열 길이가 달라져 예외 잡느라 코드가 길어졌습니다
-[0,0]을 넣는 것으로 고치려면 꽤 오래 걸릴 것 같아
-이번주차 끝나고 수정하겠습니다
+잡아먹히면 fish에 [-1, -1]
+graph에 [0, 0]
 '''''''''
 
 
@@ -29,7 +24,7 @@ for i in range(4):
 def move_fish(cfish, cgraph):
     while True:
         for i in range(1, 17):
-            if len(cfish[i]) > 0:
+            if cfish[i][0] > -1:
                 r, c = cfish[i]
                 dir = cgraph[r][c][1]
                 cnt = 1
@@ -46,15 +41,17 @@ def move_fish(cfish, cgraph):
                         cnt += 1
                         continue
                     cgraph[r][c][1] = dir
+
+                    j = cgraph[nr][nc][0]
+                    cgraph[r][c], cgraph[nr][nc] = cgraph[nr][nc], cgraph[r][c]
+
                     # 물고기와 위치를 바꾼다
-                    if len(cgraph[nr][nc]) > 0:
-                        j = cgraph[nr][nc][0]
+                    if j!=0:
                         cfish[i], cfish[j] = cfish[j], cfish[i]
-                        cgraph[r][c], cgraph[nr][nc] = cgraph[nr][nc], cgraph[r][c]
                     else:
                         cfish[i] = [nr, nc]
-                        cgraph[r][c], cgraph[nr][nc] = cgraph[nr][nc], cgraph[r][c]
                     break
+
         break
     return
 
@@ -63,8 +60,8 @@ def move_fish(cfish, cgraph):
 def dfs(SUM, pfish, pgraph):
     # 종료조건
     # 이동할 수 있는 칸이 없을 때
-    if pfish[0][0] > 3 or pfish[0][0] < 0 or pfish[0][1] > 3 or pfish[0][1] < 0 or len(
-            pgraph[pfish[0][0]][pfish[0][1]]) == 0:  # 상어는 해당 자리에 물고기가 없으면 움직이지 못한다
+    if pfish[0][0] > 3 or pfish[0][0] < 0 or pfish[0][1] > 3 or pfish[0][1] < 0 or \
+            pgraph[pfish[0][0]][pfish[0][1]]==[0,0]:  # 상어는 해당 자리에 물고기가 없으면 움직이지 못한다
         global MAX_SUM
         MAX_SUM = max(MAX_SUM, SUM)
         return
@@ -79,8 +76,8 @@ def dfs(SUM, pfish, pgraph):
     fish_num = cgraph[rshark][cshark][0]
     fish_dir = cgraph[rshark][cshark][1]
 
-    cfish[fish_num] = []  # 잡아먹힘
-    cgraph[rshark][cshark] = []
+    cfish[fish_num] = [-1, -1]  # 잡아먹힘
+    cgraph[rshark][cshark] = [0, 0]
 
     # 물고기 이동
     move_fish(cfish, cgraph)
