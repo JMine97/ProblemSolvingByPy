@@ -1,75 +1,97 @@
-# 17780 새로운 게임
+'''
+1. chess의 0번 인덱스 부터 이동
+    if 해당 인덱스의 체스말이 가장 밑에 있을 때
+        if 이동 할 칸이 파랑 or 범위밖
+            방향 반대로
+            if 이동방향이 파랑색 or 범위밖 continue
+                else 한칸이동 -> 재귀
+
+        elif 흰색
+            if 이동 할 칸에 체스말이 있을경우
+                그대로 위에올림
+        elif 빨간색
+            if 이동 할 칸에 체스말이 있을경우
+                뒤집어서 올림
+
+체스판 색깔 
+체스판 좌표별 체스말 
+체스말 위치 및 현재 이동방향
+'''
 
 N, K = map(int, input().split())
-color = [list(map(int, input().split())) for _ in range(N)] # 체스판색깔
-graph = [[[] for _ in range(N)] for _ in range(N)] # 체스말 위치
-chess = [0 for _ in range(K)] # 체스말 위치와 방향
+color = [list(map(int, input().split())) for _ in range(N)]
+chessMap = [[[] for _ in range(N)] for _ in range(N)]
+chess = []
 
-d = dict()
-d[1] = (1,0)
-d[2] = (-1,0)
-d[3] = (0,1)
-d[4] = (0,-1)
-
-#print(graph)
-loc=[]
 for i in range(K):
-    x, y, z = map(int, input().split())
-    graph[x-1][y-1].append(i)
-    chess[i] = [x-1, y-1, z]
+    x, y, d = map(int, input().split())
+    chessMap[x-1][y-1].append(i)
+    chess.append([x-1, y-1, d-1])
+
+print(color)
+print(chessMap)
+print(chess)
 
 cnt = 0
-# 012 흰빨파
+
+dx = [0, 0, -1, 1]
+dy = [1, -1, 0, 0]
 while 1:
     cnt+=1
-    for i in range(len(chess)):
-        x, y, z = chess[i]
-        dx, dy = d[z]
-        
-        # print(graph)
-        # print (graph[x][y])
-        print(chess)
-        print(graph)
-        
-        if i == graph[x][y][0]:
-            nx = x + dx
-            ny = y + dy
-
-            if 0<=nx<N and 0<=ny<N:
-                
-                # 흰색 타일 만남
-                if color[nx][ny] == 0:
-                    graph[nx][ny] += graph[x][y]
-                    chess[i][0] = nx
-                    chess[i][1] = ny 
-                    
-                    graph[x][y].clear()
-                    
-                
-                # 빨강 타일 만남
-                elif color[nx][ny] == 1:
-                    graph[x][y].reverse()
-                    graph[nx][ny] += graph[x][y]
-                    chess[i][0] = nx
-                    chess[i][1] = ny
-                    graph[x][y].clear()
-                
-                # 파랑 타일 만남
-                elif color[nx][ny] == 2:
-                    if z == 1:
-                        chess[i][2] = 2
-                    elif z == 2:
-                        chess[i][2] = 1
-                    elif z == 3:
-                        chess[i][2] = 4
-                    else:
-                        chess[i][2] = 3
-
-    if len(graph[nx][ny]) == 4:
-        if cnt > 1000:
-            print(-1)
-        else:
-            print(cnt)
+    if cnt > 1000:
+        print(-1)
         break
+
+    for i in range(len(chess)):
+        x, y, d = chess[i]
+        
+        if not chessMap[x][y] or i != chessMap[x][y][0]:
+            continue
+        # 배열을 사용할 때 x축 방향인지 y축 방향인지 꼼꼼히 확인하자
+        nx = x + dx[d]
+        ny = y + dy[d]
+
+        # 다음칸이 파랑 or 범위 밖
+        if (nx< 0 or N<=nx) or (ny<0 or N<=ny) or color[nx][ny] == 2:
+            if chess[i][2] == 0:
+                chess[i][2] = 1
+            elif chess[i][2] == 1:
+                chess[i][2] = 0
+            elif chess[i][2] == 2: 
+                chess[i][2] = 3
+            elif chess[i][2] == 3:
+                chess[i][2] = 2
+
+            nx = x + dx[chess[i][2]]
+            ny = y + dy[chess[i][2]]
+            chess[i][0] = nx
+            chess[i][1] = ny
+            if (nx< 0 or N<=nx) or (ny<0 or N<=ny) or color[nx][ny] == 2:
+                continue
+
+        # 다음칸이 흰색
+        if color[nx][ny] == 0:
+            chessMap[nx][ny] = chessMap[nx][ny] + chessMap[x][y]
+
+        # 다음칸이 빨강색
+        elif color[nx][ny] == 1:
+            chessMap[nx][ny] = chessMap[nx][ny] + list(reversed(chessMap[x][y]))
+
+        # 이동시 업혀있는 모든 체스말들의 좌표 업데이트
+        for ch in chessMap[nx][ny]:
+            chess[ch][0] = nx
+            chess[ch][1] = ny
+        
+        chessMap[x][y].clear()
+
+        if len(chessMap[nx][ny]) == 4:
+            print(cnt)
+            exit()
+
+                    
+
+
     
+
+
 
