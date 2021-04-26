@@ -1,0 +1,100 @@
+TIME     : 2017-12-13 20:11:10
+FILE     : VBoxApi.cpp
+FUNCTION : VB_GetMachineState
+LINENUM  : 1067
+DETAIL   : Machine Status  = 1
+
+TIME     : 2017-12-13 20:11:13
+FILE     : VBoxApi.cpp
+FUNCTION : VB_Init
+LINENUM  : 337
+DETAIL   : VBI_GetISession hr = 0
+
+TIME     : 2017-12-13 20:11:13
+FILE     : WorkThread.cpp
+FUNCTION : CWorkThread::start
+LINENUM  : 68
+DETAIL   : WorkThread ID : 15040
+
+
+TIME     : 2017-12-13 20:11:13
+FILE     : WorkThread.cpp
+FUNCTION : CWorkThread::start
+LINENUM  : 68
+DETAIL   : WorkThread ID : 18164
+
+
+TIME     : 2017-12-13 20:11:13
+FILE     : WorkThread.cpp
+FUNCTION : CWorkThread::start
+LINENUM  : 68
+DETAIL   : WorkThread ID : 8176
+
+
+TIME     : 2017-12-13 20:11:13
+FILE     : WorkThread.cpp
+FUNCTION : CWorkThread::start
+LINENUM  : 68
+DETAIL   : WorkThread ID : 20392
+
+
+TIME     : 2017-12-13 20:11:13
+FILE     : VBoxApi.cpp
+FUNCTION : VB_FindMachine
+LINENUM  : 895
+DETAIL   : Machine "Nox_6" has been found.
+
+TIME     : 2017-12-13 20:11:13
+FILE     : VBoxApi.cpp
+FUNCTION : VB_FindMachineEx
+LINENUM  : 827
+DETAIL   : Machine "Nox_6" has been found.
+
+TIME     : 2017-12-13 20:11:13
+FILE     : VBoxApi.cpp
+FUNCTION : VB_GetMachineState
+LINENUM  : 1067
+DETAIL   : Machine Status  = 1
+
+TIME     : 2017-12-13 20:11:14
+FILE     : VBoxApi.cpp
+FUNCTION : VB_GetMachineState
+LINENUM  : 1067
+DETAIL   : Machine Status  = 1
+
+TIME     : 2017-12-13 20:11:18
+FILE     : VBoxApi.cpp
+FUNCTION : VB_GetMachineState
+LINENUM  : 1067
+DETAIL   : Machine Status  = 5
+
+TIME     : 2017-12-13 20:11:18
+FILE     : VBoxApi.cpp
+FUNCTION : VB_GetMachineState
+LINENUM  : 1067
+DETAIL   : Machine Status  = 5
+
+TIME     : 2017-12-13 20:11:19
+FILE     : VBoxApi.cpp
+FUNCTION : VB_RemoveSharedFolder
+LINENUM  : 2992
+DETAIL   : ErrorCode is "110". Detail : VB_ERR_REMOVE_SHAREDFOLDER_FAIL
+
+TIME     : 2017-12-13 20:11:19
+FILE     : VBoxApi.cpp
+FUNCTION : VB_RemoveSharedFolder
+LINENUM  : 2992
+DETAIL   : ErrorCode is "110". Detail : VB_ERR_REMOVE_SHAREDFOLDER_FAIL
+
+TIME     : 2017-12-13 20:11:20
+FILE     : VBoxApi.cpp
+FUNCTION : VB_RemoveSharedFolder
+LINENUM  : 2992
+DETAIL   : ErrorCode is "110". Detail : VB_ERR_REMOVE_SHAREDFOLDER_FAIL
+
+TIME     : 2017-12-13 21:35:28
+FILE     : VBoxApi.cpp
+FUNCTION : VB_GetMachineState
+LINENUM  : 1067
+DETAIL   : Machine Status  = 1
+

@@ -1,0 +1,70 @@
+TIME     : 2019-03-30 23:44:04
+FILE     : VBoxApi.cpp
+FUNCTION : VB_GetMachineRomVertion
+LINENUM  : 7027
+DETAIL   : B hd P E
+
+TIME     : 2019-03-30 23:44:04
+FILE     : VBoxApi.cpp
+FUNCTION : VB_GetMachineRomVertion
+LINENUM  : 7027
+DETAIL   : B hd P E
+
+TIME     : 2019-03-30 23:44:04
+FILE     : VBoxApi.cpp
+FUNCTION : VB_Init
+LINENUM  : 510
+DETAIL   : VBI_GetISession hr = 0
+
+TIME     : 2019-03-30 23:44:04
+FILE     : WorkThread.cpp
+FUNCTION : CWorkThread::start
+LINENUM  : 68
+DETAIL   : WorkThread ID : 17664
+
+
+TIME     : 2019-03-30 23:44:04
+FILE     : WorkThread.cpp
+FUNCTION : CWorkThread::start
+LINENUM  : 68
+DETAIL   : WorkThread ID : 9296
+
+
+TIME     : 2019-03-30 23:44:04
+FILE     : WorkThread.cpp
+FUNCTION : CWorkThread::start
+LINENUM  : 68
+DETAIL   : WorkThread ID : 15440
+
+
+TIME     : 2019-03-30 23:44:04
+FILE     : WorkThread.cpp
+FUNCTION : CWorkThread::start
+LINENUM  : 68
+DETAIL   : WorkThread ID : 15988
+
+
+TIME     : 2019-03-30 23:44:05
+FILE     : VBoxApi.cpp
+FUNCTION : VB_ImportMachineEx
+LINENUM  : 6042
+DETAIL   : data2 vmdk
+
+TIME     : 2019-03-30 23:44:05
+FILE     : VBoxApi.cpp
+FUNCTION : VB_ImportMachineEx
+LINENUM  : 6092
+DETAIL   : Globle size 3
+
+TIME     : 2019-03-30 23:44:05
+FILE     : VBoxApi.cpp
+FUNCTION : VB_ImportMachineEx
+LINENUM  : 6117
+DETAIL   : data2 vmdk
+
+TIME     : 2019-03-30 23:44:05
+FILE     : VBoxApi.cpp
+FUNCTION : VB_ImportMachineEx
+LINENUM  : 6124
+DETAIL   : Globle size 3
+
