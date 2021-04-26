@@ -36,9 +36,11 @@ def move(chess_num):
     if a[nx][ny] == 1: #다음으로 이동할 칸이 빨간색이면
         chess_set = chess_set[-1::-1] #말의 업힌 순서 변경
 
+    
     for i in chess_set:
         chess_map[nx][ny].append(i) #체스 판에 말을 추가
         chess[i][:2] = [nx, ny]
+
 
     if len(chess_map[nx][ny]) >= 4: #4개 이상 올라탔으면 flag=1로
         return 1
