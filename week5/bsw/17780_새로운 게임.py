@@ -4,7 +4,7 @@
         if 이동 할 칸이 파랑 or 범위밖
             방향 반대로
             if 이동방향이 파랑색 or 범위밖 continue
-                else 한칸이동 -> 재귀
+                else 한칸이동 -> 재귀 X -> pass
 
         elif 흰색
             if 이동 할 칸에 체스말이 있을경우
@@ -33,17 +33,14 @@ print(chessMap)
 print(chess)
 
 cnt = 0
-
+flag = False
 dx = [0, 0, -1, 1]
 dy = [1, -1, 0, 0]
-while 1:
+while cnt <= 1000:
     cnt+=1
-    if cnt > 1000:
-        print(-1)
-        break
 
     for i in range(len(chess)):
-        x, y, d = chess[i]
+        x, y, d = chess[i] 
         
         if not chessMap[x][y] or i != chessMap[x][y][0]:
             continue
@@ -64,10 +61,11 @@ while 1:
 
             nx = x + dx[chess[i][2]]
             ny = y + dy[chess[i][2]]
-            chess[i][0] = nx
-            chess[i][1] = ny
+            
             if (nx< 0 or N<=nx) or (ny<0 or N<=ny) or color[nx][ny] == 2:
                 continue
+            chess[i][0] = nx
+            chess[i][1] = ny
 
         # 다음칸이 흰색
         if color[nx][ny] == 0:
@@ -85,9 +83,17 @@ while 1:
         chessMap[x][y].clear()
 
         if len(chessMap[nx][ny]) == 4:
-            print(cnt)
-            exit()
+            flag = True
+            break
 
+    if flag:
+        break
+
+
+if cnt > 1000:
+    print(-1)
+else:
+    print(cnt)
                     
 
 
