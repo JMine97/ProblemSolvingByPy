@@ -1,3 +1,8 @@
+'''
+시간복잡도 O(n)
+record의 최대 길이 10^5
+'''
+
 def solution(record):
     answer = []
     dict={}
