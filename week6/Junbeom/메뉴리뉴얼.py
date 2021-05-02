@@ -5,7 +5,7 @@ Orders 의 크기: 2 <= len(Orders) <= 20
 Course의 크기 : 1 <= len(Course) <= 10
 ** 둘 다 적은 양의 input이라 여유로워 보이지만, 여유롭지 않은 시간이 주어진 문제이다. 
 
-그러나 Combination을 하면서, orders에 따른 숫자만큼 새로운 list를 생성해내기 때문에 그 길이는 Factorial 단위로 커지므로 2^n의 좋지 않은 시간복잡도를 가지므로 적은 양의 input이지만 list로 풀게 되면 1초를 벗어나 시간초과가 남.
+Combination을 하면서 orders에 따른 숫자만큼 새로운 list를 생성해내기 때문에 그 길이는 Factorial 단위로 커지므로 2^n의 좋지 않은 시간복잡도를 가지므로 적은 양의 input이지만 list로 풀게 되면 1초를 벗어나 시간초과가 남.
 
 Combination의 연산횟수 : n! / r!(n-r)!
 
