@@ -5,15 +5,14 @@ def balance(u):
 
 def correct(u):
     stack=[]
-    for i in range(len(u)):
-        if stack and stack[-1]=='(' and u[i]==')':
-            stack.pop()
+    for i in u:
+        if i=='(':
+            stack.append(i)
         else:
-            stack.append(u[i])
-    if stack:
-        return False
-    else:
-        return True
+            if not stack:
+                return False
+            stack.pop()
+    return True
     
 def reverse(u):
     ret=''
