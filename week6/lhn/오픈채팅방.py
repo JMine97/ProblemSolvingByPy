@@ -1,3 +1,5 @@
+#문제에서 하라는 대로 하면됨
+# 시간복잡도는 O(N)
 record = list(input().replace("[","").replace("]","").split(","))
 
 def solution(record):
