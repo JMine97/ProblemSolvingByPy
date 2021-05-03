@@ -68,3 +68,7 @@ def solution(p):
             
     answer = func(p)
     return answer
+'''
+시간복잡도 : O(N)
+p는 '(' 와 ')' 로만 이루어진 문자열이며 길이는 2 이상 1,000 이하인 짝수
+'''
