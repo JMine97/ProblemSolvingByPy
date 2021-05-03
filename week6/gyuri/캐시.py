@@ -31,4 +31,6 @@ cities: 도시 이름 배열
 deque를 통해서 캐시를 큐를 통해서 처리하자
 from collections import deque
 deque의 크기를 제한 
+복잡도 : O(N)
 '''
+
