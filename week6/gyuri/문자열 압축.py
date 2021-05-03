@@ -1,3 +1,7 @@
+'''
+시간복잡도 : O(N^2)
+'''
+
 def solution(s):
     answer = len(s)
     length = len(s)//2+1
