@@ -5,6 +5,8 @@ O(n)
 2차 시도 : return "(None)" 주의
 3차 시도 : 분만 고려하지 말고 시간도 고려해줘야 함
 4차 시도 : arr 정렬할 때 그냥 정렬하면 오름차순으로 길이가 짧은 게 먼저 나옴, reverse=True 붙여주기
+
+성공!
 '''
 
 def changenote(note):
