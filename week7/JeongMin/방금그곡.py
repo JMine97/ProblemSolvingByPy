@@ -9,7 +9,7 @@ O(n)
 성공!
 '''
 
-def changenote(note):
+def change(note):
     note=note.replace('C#','c')
     note=note.replace('D#','d')
     note=note.replace('F#','f')
@@ -19,18 +19,18 @@ def changenote(note):
 
 def solution(m, musicinfos):
     arr=[] #[제목, 음표]
-    m=changenote(m)
+    m=change(m)
 
     for mm in musicinfos:
-        mm=mm.split(',')
-        end, start=mm[1], mm[0]
-        title, sound=mm[2],changenote(mm[3])
-        end_hour, start_hour=int(mm[1].split(':')[0]), int(mm[0].split(':')[0])
-        end_min, start_min=int(mm[1].split(':')[1]), int(mm[0].split(':')[1])
+        start, end, title, sound=mm.split(',')
+        sound=change(sound)
+        
+        start_hour, start_min, end_hour, end_min=map(int, start.split(':') + end.split(':'))
         length=(end_hour-start_hour)*60+(end_min-start_min)
 
         #길이 맞추기
         sound = sound*(length//len(sound))+sound[:length%len(sound)]
+        
         arr.append([title, sound])
     
     arr.sort(key=lambda x:len(x[1]), reverse=True)
