@@ -1,11 +1,29 @@
 """
+문자열 압축
+
+abcabcdede
+
+a b c a b c d e d e => 10
+
+ab ca bc de de
+=> ab ca bc 2de => 9
+
+abc abc ded e
+=> 2abc ded e => 8
+
+몇개 단위로 잘라야 가장 작은 문자열이 나올까
+그 때의 문자열 길이를 구해라
+
+=> 모두 다 계산해봐야 최솟값을 구할 수 있다
+
+
 
 1. 자르는 단위를 늘려가면서 문자열을 자른다
 
 2. 잘라진 문자열에서 겹치는 부분을 처리해서 문자열 길이를 구한다
-ex) aabb => 2a2b
 
 3. 이전의 문자열 길이와 현재 문자열 길이를 비교해 최솟값을 찾는다
+
 
 for문이 2개 쓰였기 때문에 시간 복잡도는 O(n^2)
 
@@ -14,11 +32,11 @@ for문이 2개 쓰였기 때문에 시간 복잡도는 O(n^2)
 def solution(s):
     answer = 100000
     
-    for i in range(1,len(s)+1): 
+    for i in range(1,len(s)+1): #자르는 단위를 늘려가면서 계속 반복
         new_answer = 0 
         split = []
 
-        # 1. 문자열을 잘라서 리스트에 저장
+        # 1. 그 길이 만큼 문자열을 잘라서 리스트에 저장
         for j in range(0,len(s),i): 
             split.append(s[j:j+i]) 
 
@@ -53,4 +71,4 @@ def solution(s):
     
     return answer
 
-print(solution("abcabcabcabcdededededede"))
+print(solution("aabbbc"))
