@@ -1,3 +1,7 @@
+"""
+o(n)
+"""
+
 def solution(msg):
     dic = dict()
     lst = []
