@@ -4,6 +4,40 @@ N번 도시, M개의 단방향 도로
 x 출발 거리가 K인 도시
 '''
 import sys
+from collections import deque
+input = sys.stdin.readline
+n, m, k, x = map(int ,input().split())
+path =[[] for _ in range(n+1)]
+dist = [-1] * (n+1)
+dist[x] = 0
+for _ in range(m):
+    start,end = map(int, input().split())
+    path[start].append(end)
+deq = deque()
+answer = []
+deq.append(x)
+
+while deq:
+    v = deq.popleft()
+    for i in path[v]:
+        if dist[i] == -1:
+            deq.append(i)
+            dist[i] = dist[v] + 1
+
+
+
+for idx, item in enumerate(dist):
+    if item == k:
+        answer.append(idx)
+answer.sort()
+if len(answer):
+    for i in answer:
+        print(i)
+else:
+    print('-1')
+# ---------------------------------------------------------------------------------------------------------
+
+import sys
 import heapq
 input = sys.stdin.readline
 INF = int(1e9)
