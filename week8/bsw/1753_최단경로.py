@@ -25,7 +25,8 @@ while q:
     if cur not in graph:
         continue
     for next, cost in graph[cur]:
-
+        if distance[next] < distance[cur] + cost:
+            continue
         distance[next] = min(distance[next], distance[cur] + cost)
         q.append(next)
 
