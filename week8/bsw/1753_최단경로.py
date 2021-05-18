@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 V, E = map(int, input().split())
 s = int(input())
 
@@ -25,8 +28,10 @@ while q:
     if cur not in graph:
         continue
     for next, cost in graph[cur]:
+        ########### 추가
         if distance[next] < distance[cur] + cost:
             continue
+        ###################
         distance[next] = min(distance[next], distance[cur] + cost)
         q.append(next)
 
