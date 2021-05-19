@@ -24,7 +24,7 @@ for i in range(D):
 
 def dijk(start):
     q = []
-    heapq.heappush(q, (0, start)) # q - (거리, 노드)
+    heapq.heappush(q, (start, 0)) # q - (노드,거리 )
     
     while q:
         now, d = heapq.heappop(q)        
