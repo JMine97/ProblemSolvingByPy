@@ -1,8 +1,10 @@
 """
 암호는 최소 한개의 모음과 최소 두개의 자음으로 구성
 알파벳이 암호에서 증가하는 순서로 배열(abc o bac x)
+가능한 암호의 종류를 모두 출력
 
 => 전체 다 해보는데 조건에 맞지 않으면 빼면 됨
+=> 백트래킹
 
 O(n)
 
@@ -10,15 +12,17 @@ O(n)
 
 
 
-l, c = map(int, input().split())
+l, c = map(int, input().split()) # l: 암호 길이 c: 암호에 들어갈 수 있는 알파벳 종류 개수
 
-
-alpha = list(map(str,input().split()))
+alpha = list(map(str,input().split())) #암호에 사용될 수 있는 알파벳
 alpha.sort()
 
 
 def dfs(idx, lst):
-    if idx == l: 
+    #idx:우리가 만든 암호의 길이
+    #lst : 우리가 만든 암호 리스트
+    
+    if idx == l: #우리가 만든 암호의 길이가 실제 암호의 길이와 같아지면
         vow = 0 # 모음 개수
         con = 0 # 자음 개수
 

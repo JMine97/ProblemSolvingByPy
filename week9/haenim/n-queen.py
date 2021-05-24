@@ -4,7 +4,7 @@ o(n)
 
 n = int(input())
 count = 0
-row, left, right = [0 for _ in range(n)],  [0 for _ in range(2*n-1)]
+row, left, right = [0 for _ in range(n)],  [0 for _ in range(2*n-1)], [0 for _ in range(2*n-1)]
 
 def solution(index):
     if index = n: 
