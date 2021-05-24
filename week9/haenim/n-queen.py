@@ -1,21 +1,56 @@
 """
 o(n)
+
+
+
 """
 
 n = int(input())
 count = 0
 row, left, right = [0 for _ in range(n)],  [0 for _ in range(2*n-1)], [0 for _ in range(2*n-1)]
+#각각 세로줄(|), 대각선 줄 (/) , 대각선 줄 (\)을 체크할 배열
 
-def solution(index):
-    if index = n: 
+# 같은 대각선에 있으면 인덱스의 합,차가 같음
+# ex) (0,2) (1,1) (2,0) 은 같은 대각선 상에 있음 - 합이 같음
+# ex) (0,1) (1,2) 는 같은 역대각선 상에 있음 - 차가 같음
+
+"""
+인덱스 i, j
+[0,0] [0,1] [0,3]
+[1,0] [1,1] [1,2]
+[2,0] [2,1] [2,2] 
+
+세로 j
+[0][1][2]
+[0][1][2]
+[0][1][2]
+
+=> j가 같으면 다 같은 세로줄
+
+대각선(/) = i+j
+[0][1][2]
+[1][2][3]
+[2][3][4]
+=> i+j가 같으면 다 같은 대각선
+
+대각선(\) = i-j+n-1
+[4][3][2]
+[5][4][3]
+[6][5][4]
+=> i-j+n-1이 같으면 다 같은 역대각선
+
+"""
+
+def solution(i):
+    if i = n: # 끝까지 퀸을 넣으면 count+=1 
         count += 1
         return
 
-    for col in range(n): 
-        if row[col] + left[index+col] + right[n-1 + index - col] == 0 :
-            row[col] = left[index+col] = right[n-1+index-col]=1
-            solution(index+1)
-            row[col] = left[index+col] = rigth[n-1+index-col] = 0
+    for j in range(n): # 열을 이동하면서 
+        if row[j] + left[i + j] + right[n-1 + i - j] == 0 : # 세로, 대각선, 역대각선 체크해서 퀸이 없으면 퀸을 넣을 수 있다는 뜻
+            row[j] = left[i+ j] = right[n-1 + i - j] = 1 # 세로, 대각선, 역대각선에 퀸을 배치 못하게 됐음을 표시
+            solution(i+1) # 다음 행으로 이동 하면서 위의 과정을 반복
+            row[j] = left[i +j] = rigth[n-1 + i - j] = 0 # 한 과정이 끝나면 다시 0으로 초기화
 
 solution(0)
 print(count)
