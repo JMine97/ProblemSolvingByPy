@@ -35,5 +35,5 @@ while True:
                     hp.heappush(q, (money+cave[nr][nc], nr, nc))
                     distance[nr][nc]=money+cave[nr][nc]
 
-    print('Problem %d: %d' % (i,distance[n-1][n-1]))
+    print('Problem %d: %d' % (i+1,distance[n-1][n-1]))
     i+=1
