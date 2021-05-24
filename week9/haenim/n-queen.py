@@ -7,7 +7,7 @@
 n = int(input())
 count = 0
 row, left, right = [0 for _ in range(n)],  [0 for _ in range(2*n-1)], [0 for _ in range(2*n-1)]
-#각각 열(|), 대각선 줄 (/) , 대각선 줄 (\)을 체크할 배열
+#각각 열(|), 대각선 줄 (/) , 역대각선 줄 (\)을 체크할 배열
 
 # 같은 대각선에 있으면 인덱스의 합,차가 같음
 # ex) (0,2) (1,1) (2,0) 은 같은 대각선 상에 있음 : 합이 같음
@@ -46,7 +46,9 @@ row, left, right = [0 for _ in range(n)],  [0 for _ in range(2*n-1)], [0 for _ i
 """
 
 def solution(i):
-    if i = n: # 마지막 행 까지 도달하면 count+=1 
+    global count
+    
+    if i == n: # 마지막 행 까지 도달하면 count+=1 
         count += 1
         return
 
@@ -54,7 +56,7 @@ def solution(i):
         if row[j] + left[i + j] + right[n-1 + i - j] == 0 : # 현재 위치에서 같은 열, 같은 대각선, 같은 역대각선 체크해서 퀸이 없으면 퀸을 넣을 수 있다는 뜻
             row[j] = left[i+ j] = right[n-1 + i - j] = 1 # i,j에 퀸을 배치해서 이제 그 위치와 같은 열, 대각선, 역대각선에 퀸을 배치 못하게 됐음을 표시
             solution(i+1) # 다음 행으로 이동 하면서 위의 과정을 반복
-            row[j] = left[i +j] = rigth[n-1 + i - j] = 0 # 한 과정이 끝나면 다시 0으로 초기화
+            row[j] = left[i +j] = right[n-1 + i - j] = 0 # 한 과정이 끝나면 다시 0으로 초기화
 
 solution(0)
 print(count)
