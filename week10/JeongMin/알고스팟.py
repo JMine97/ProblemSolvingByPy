@@ -8,12 +8,12 @@ m, n = map(int, input().split())
 maze = []
 
 for _ in range(n):
-    maze.append(list(map(int, list(input().strip()))))
+    maze.append(list(map(int, input().strip())))
 
 q = []
 hq.heappush(q, (0, 0, 0))
 wall = [[INF] * m for _ in range(n)]
-wall[0][0]=0
+wall[0][0] = 0
 
 while q:
     wall_cnt, r, c = hq.heappop(q)
