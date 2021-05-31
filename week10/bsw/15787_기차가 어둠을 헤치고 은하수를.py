@@ -31,4 +31,4 @@ train_str = set()
 
 for t in train:
     train_str.add(''.join(str(t)))
-print(train_str)
+print(len(train_str))

@@ -19,28 +19,25 @@ N이 2의 거듭제곱일 경우 항상 1개가 될 수 있다
 
 nlogn -> 시간초과
 '''
+
+
 N, K = map(int, input().split())
-# #i=0
-# def loop(N):
-#     cnt=0
-#     #global i
-#     while N:
-#         cnt += N%2
-#         N //= 2
-#         #i+=1
-#     return cnt
+#i=0
+def loop(N):
+    cnt=0
+    #global i
+    while N:
+        cnt += N%2
+        N //= 2
+        #i+=1
+    return cnt
 
-# ans=0
-# while 1:
-#     cnt = loop(N+ans)
-#     if cnt <= K:
-#         break
-#     else:
-#         ans+=1
-# print(ans)
-
-'''============================================================='''
-
-print(bin(5) + bin(3))
-
+ans=0
+while 1:
+    cnt = loop(N+ans)
+    if cnt <= K:
+        break
+    else:
+        ans+=1
+print(ans)
 

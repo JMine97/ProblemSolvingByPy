@@ -22,8 +22,10 @@ for comb in alpha_combs:
     comb = set(comb)
     cnt = 0
     for word in words:
-        if word.issubset(comb):
+        if word.issubset(comb): # word <= comb
             cnt += 1
+    
+    #최대값 갱신
     if cnt > answer:
         answer = cnt
 
