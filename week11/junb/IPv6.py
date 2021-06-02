@@ -1,5 +1,3 @@
-# 문자열 처리를 regex를 이용해서 함. 
-
 import sys
 
 s = str(input())
