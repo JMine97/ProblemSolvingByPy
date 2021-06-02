@@ -6,10 +6,10 @@ D : popleft
 from collections import deque
 
 T = int(input())
-ans=[]
+
 for _ in range(T):
     
-    error = 0
+    
     func = input()
     arr_len = int(input())
     if arr_len == 0:
