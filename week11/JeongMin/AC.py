@@ -5,12 +5,14 @@ input=sys.stdin.readline
 '''
 R 뒤집기
 D 처음 두 숫자 버리기
+
+deque는 인덱스 슬라이싱이 안 된다
 '''
 for _ in range(int(input())):
     p=input().strip()
     n=int(input())
 
-    arr=input().strip().lstrip('[').rstrip(']').split(',')
+    arr=input().strip('[]\n').rsplit(',')
 
     if arr[0]=='':
         q=deque()
@@ -19,29 +21,25 @@ for _ in range(int(input())):
 
     start=0
 
-    Flag=False
-    for pp in p:
-        if pp=='R':
-            if start==0:
-                start=len(q)-1
-            else:
-                start=0
-        elif pp=='D':
-            if len(q) == 0:
-                Flag = not Flag
-                print("error")
-                break
+    flag=1
+    try:
+        for pp in p:
+            if pp=='R':
+                flag*=-1
+            elif pp=='D':
+                if flag==1:
+                    q.popleft()
+                else:
+                    q.pop()
+    except:
+        print('error')
+        continue
 
-            if start==0:
-                q.popleft()
-            else:
-                q.pop()
 
-    if not Flag:
-        q=list(q)
-        print('[', end='')
-        if start==0:
-            print(','.join(q), end='')
-        else:
-            print(','.join(q[::-1]), end='')
-        print(']')
+    q=list(q)
+    print('[', end='')
+    if flag==1:
+        print(','.join(q), end='')
+    else:
+        print(','.join(q[::-1]), end='')
+    print(']')
