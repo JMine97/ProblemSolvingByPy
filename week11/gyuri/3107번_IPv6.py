@@ -19,18 +19,14 @@ hex = input().rstrip('\n').split(':')
 hex_len = len([v for v in hex if v])
 
 # 규칙 2
-def rule2(idx, n):
-    temp = hex[:idx] + ['0000']*(8-n) + hex[idx:]
-    return temp
-
 if hex_len != 8:
     for i in range(len(hex)):
         if hex[i] == '':
-            hex = rule2(i, hex_len)
+            hex = hex[:i] + ['0000'] * (8 - hex_len) + hex[i:]
             break
 
 hex = ' '.join(hex).split()
-# 규칙 1 
+
 for i in range(len(hex)):
     if len(hex[i]) == 4:
         continue
