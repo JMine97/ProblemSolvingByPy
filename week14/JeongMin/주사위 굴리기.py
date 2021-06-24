@@ -1,3 +1,7 @@
+'''
+swap 적극 활용하기
+'''
+
 n, m, x, y, k = map(int, input().split())  # 지도 크기, 주사위 좌표, 명령 갯수
 graph = []
 
