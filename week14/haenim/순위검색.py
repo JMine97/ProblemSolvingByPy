@@ -32,8 +32,6 @@ def solution(info, query):
                 elif j != 4 and data.find(q[j]) == -1:
                     break
 
-
-        
                         
         answer.append(count)
         
@@ -46,3 +44,20 @@ print(solution(["java backend junior pizza 150", "python frontend senior chicken
          ["java and backend and junior and pizza 100", "python and frontend and senior and chicken 200",
           "cpp and - and senior and pizza 250", "- and backend and senior and - 150", "- and - and - and chicken 100",
           "- and - and - and - 150"]))
+
+
+"""
+1. 주어진 info에 대해 '-'를 포함한 모든 만족하는 쿼리의 종류를 만든다.
+
+java backend junior pizza 150
+
+ -   backend junior pizza 150
+java     -   junior pizza  150
+
+2. 딕셔너리 구성
+
+3. 주어진 query에 대해 딕셔너리를 확인하고,값이 있을 경우 lower bound를 통해 쿼리보다 점수가 같거나 높은 갯수 찾기
+
+
+
+"""
