@@ -24,5 +24,3 @@ while 1:
 dic=sorted(d.items())
 for k, v in dic:
     print(k, '%.4f' %round((v/total)*100, 4))
-
-print(round(4.33, 4))
