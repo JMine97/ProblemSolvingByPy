@@ -5,8 +5,7 @@ l, r = 0, 0
 
 answers = []
 sum_nums = 0
-while l<=r and r<N:
-    #print(lst[l], lst[r], sum_nums)
+while l<=r:# and r<N:
     
     if sum_nums >= S:
         answers.append(r-l)
@@ -17,9 +16,9 @@ while l<=r and r<N:
     elif sum_nums < S:
         sum_nums+=lst[r]
         r+=1
+    
 
 if not answers:
     print(0)
 else: print(sorted(answers)[0])
-
-
+    
