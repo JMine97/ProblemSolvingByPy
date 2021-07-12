@@ -27,6 +27,8 @@ while q:
                 continue
             
             # 칼
+            # 칼을 들고 도착지에 도달하는데 걸리는 시간 = 
+            #                   지금까지 걸린시간 + 다음칸 이동시간 1 + 칼 위치부터 종료지점까지 가는데 걸리는시간
             if graph[nr][nc] == 2:
                 answer2 = times[r][c] + 1 + ((N-1)-nr) + ((M-1)-nc)
             
@@ -37,6 +39,7 @@ while q:
 # print(graph)
 # print(times)
 
+# 칼을 만난 경우와 안 만난 경우의 시간 비교
 times[N-1][M-1] = min(times[N-1][M-1], answer2)
 
 if times[N-1][M-1] > T:
